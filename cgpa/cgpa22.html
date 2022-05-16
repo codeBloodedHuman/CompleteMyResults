@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="../css/commen.css">
+    <title>CGPA 2-2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+   <script>
+        function Calculate() {
+            $(document).ready(function(){
+                var sem1 = parseInt(document.getElementById("s1").value);
+                var sem2= parseInt(document.getElementById("s2").value);
+                var sem3= parseInt(document.getElementById("s3").value);
+                var sem4= parseInt(document.getElementById("s4").value);
+                var sem = sem1+sem2+sem3+sem4;
+                if(!isNaN(sem)) {
+                var cgpa =sem/4;
+                var percentage= (cgpa - 0.5 )* 10;
+                    if (sem1 < 10 && sem2<10 && sem3<10 && sem4<10) {
+                        console.log('some')
+                        $('#calculateModalToggle').modal('show');
+                        document.getElementById("cgpa").innerHTML = cgpa.toFixed(2);
+                        document.getElementById("per").innerHTML = percentage.toFixed(2) + " %";
+                        return
+                    }
+                }
+                
+                alert("Enter valid input")
+            })
+        }
+        
+   </script>
+</head>
+<body>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="../b.tech.html">B.tech</a></li>
+          <li class="breadcrumb-item active" aria-current="page">CGPA 2-2</li>
+        </ol>
+      </nav>
+    <div class="container">
+        <h1>B.tech CGPA till 2-2</h1>
+        <table>
+            <table-header>
+                <tr>
+                    <th>s.no</th>
+                    <th>Year & Semister</th>
+                    <th>SGPA</th>
+                </tr>
+            </table-header>
+            <table-body>
+                <form >
+                    <tr>
+                        <td>1</td>
+                        <td>1st Year 1st Sem</td>
+                        <td><input type="text"  id="s1" class="semister" ></td>
+                    </tr>
+                     <tr>
+                        <td>2</td>
+                        <td>1st Year 2nd Sem</td>
+                        <td><input type="text"  id="s2" class="semister" ></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>2nd Year 1st Sem</td>
+                        <td><input type="text"  id="s3" class="semister" ></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>2nd Year 2nd Sem</td>
+                        <td><input type="text" id="s4" class="semister" ></td>
+                    </tr>   
+                </form>
+            </table-body>
+            <table-footer>
+                <tr>
+                    <td colspan="4">
+                        <div>
+                            <a role="button">
+                                <input id="button" onclick="Calculate()" type="submit" value="CALCULATE"></input>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </table-footer>
+        </table>
+        <div class="modal fade" id="calculateModalToggle">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="calculateModalToggleLabel">FINAL RESULTS:</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-grid gap-1 col mx-auto">
+                           <Table>
+                               <tr>
+                                   <th>CGPA :</th>
+                                   <th ><span class="output"  id="cgpa"></span></th>    
+                               </tr>
+                               <tr>
+                                   <th >Percentage:</th>
+                                   <th ><span class="output"  id="per"></span></th>   
+                                </tr>
+                           </Table>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>d
