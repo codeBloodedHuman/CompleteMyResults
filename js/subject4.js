@@ -18,6 +18,6 @@ function Calculate() {
             return
         }
         
-        alert("Please make your eye sight clear, and enter all the grades");
+        alert("Enter all the grades");
     })
 }

@@ -14,8 +14,8 @@
    <script>
         function Calculate() {
             $(document).ready(function(){
-                var sem1 = parseInt(document.getElementById("s1").value);
-                var sem2= parseInt(document.getElementById("s2").value);
+                var sem1 = parseFloat(document.getElementById("s1").value);
+                var sem2= parseFloat(document.getElementById("s2").value);
                 var sem = sem1+sem2;
                 if(!isNaN(sem)) {
                 var cgpa =sem/2;
